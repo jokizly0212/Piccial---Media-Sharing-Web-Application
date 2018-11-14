@@ -119,6 +119,19 @@ form a:hover {
     animation: slide-up-form 1s forwards;
 }
 
+/******************CSS FOR SIGN UP PAGE***************/
+form.sign-up {
+    top: 60%;
+    visibility: visible;
+    animation: slide-left 1s forwards;
+}
+.logo.logo-sign-up {
+    bottom: 65%;
+    animation: none;
+    transform: translateX(-50%) scale(0.6);
+    animation: slide-right 1s forwards;
+}
+
 
 
 
@@ -185,6 +198,26 @@ form a:hover {
         transform: translateX(-50%) scale(0.6);
     }
 }
+@keyframes slide-left {
+    0% {
+        opacity: 0;
+        transform: translate(-100%, -50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+@keyframes slide-right {
+    0% {
+        opacity: 0;
+        transform: translateX(0%) scale(0.6);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(0.6);
+    }
+}
 
 
 /********************CSS FOR RESPONSIVE********************/
@@ -209,7 +242,19 @@ form a:hover {
     form input, form a, ::-webkit-input-placeholder {
         font-size: 1.2rem;
     }
+    /***************CSS FOR SIGN-UP PAGE*****************/
+    form.sign-up {
+        top: 62%;
+        animation: slide-left 1s forwards;
+    }
+    .logo.logo-sign-up {
+        bottom: 60%;
+        animation: slide-right 1s forwards;
+    }
 }
+
+
+
 
 @media only screen and (min-width: 1025px) { /*for common laptops > 13" */
     html, body {
@@ -231,6 +276,16 @@ form a:hover {
     }
     form input {
         padding-left: 2vw;
+    }
+
+    /***************CSS FOR SIGN-UP PAGE*****************/
+    form.sign-up {
+        top: 65%;
+        animation: slide-left 1s forwards;
+    }
+    .logo.logo-sign-up {
+        bottom: 58%;
+        animation: slide-right 1s forwards;
     }
     
 }
