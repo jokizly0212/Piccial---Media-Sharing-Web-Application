@@ -9,3 +9,6 @@ get_started_button.addEventListener('click', () => {
     form.classList.add('slide-up-form');
 });
 
+
+
+
