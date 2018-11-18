@@ -3,16 +3,20 @@
     padding: 0;
 }
 html, body {
-    width: 100%;
     height: 100%;
     font-family: 'Niramit', sans-serif;
-    background: url('../images/background-phone.jpg');
-    background-position: center;
-    background-size: cover;
     position: relative;
+}
+body {
+    width: 100%;
+    min-height: 100%;
 }
 body.front-page {
     display: grid;
+    background: url('../images/background.jpg');
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
 }
 .logo-section, .login-section {
     width: 100%;
@@ -133,22 +137,26 @@ form.sign-up {
 }
 
 /*****************CSS FOR MAIN PAGE*******************/
+
+/*****css for menu bar*****/
 body#main {
     background: #eeeeee;
-    display: normal;
 }
-.menu-bar {
-    background: #242424;
+section.menu-bar {
     width: 100%;
-    height: 12vh;
+    height: 15vh;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    position: fixed;
+    z-index: 4;
 }
 .menu-logo {
     display: block;
-    height: 8vh;
-    padding: 2vh;
+    height: 12vh;
+    padding-top: 3vh;
     justify-self: center;
+    cursor: pointer;
+    transition: 0.4s;
 }
 .search-box {
     width: 100%;
@@ -172,6 +180,9 @@ body#main {
     right: 0;
     transform: translateY(-50%);
 }
+.search-button i:hover {
+    color: #dddddd;
+}
 .search-click {
     z-index: 2;
 }
@@ -182,15 +193,16 @@ body#main {
     width: 100%;
     height: 5vh;
     outline: none;
-    border: none;
+    border: 1.5px solid #f9ca06;
     position: absolute;
-    top: 50%;
-    right: 0;
+    background: none;
     border-radius: 30px;
     transform: translateY(-50%);
+    top: 50%;
+    right: 0;
     font-size: 0.75rem;
+    background: rgba(17, 13, 13, 0.801);
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
     padding-left: 1.5vw;
     color: #dddddd;
     transition: 0.4s;
@@ -231,7 +243,7 @@ body#main {
 .menu-options i {
     color: #f9ca06;
     font-size: 1.4rem;
-    line-height: 12vh;
+    line-height: 15vh;
     padding-right: 2.5vw;
     cursor: pointer;
     transition: 0.4s;
@@ -239,12 +251,329 @@ body#main {
 .menu-options i:hover {
     color: #dddddd;
 }
+.menu-bar.scroll {
+    background: #242424;
+    height: 10vh;
+}
+.menu-bar.scroll .menu-logo {
+    height: 6vh;
+    margin: 2vh 0;
+    padding-top: 0;
+}
+.menu-bar.scroll .menu-options i {
+    line-height: 10vh;
+    font-size: 1.2rem;
+}
+.menu-bar.scroll .search-box input {
+    background: none;
+    border: 1.3px solid #f9ca06;
+}
+.menu-bar-animation {
+    animation: menu-slide-down .5s forwards;
+}
+/***************CSS FOR ADD ITEM BUTTON************/
+.add-item-button {
+    position: fixed;
+    z-index: 9999;
+    bottom: 3%;
+    right: 3%;
+    width: 7vh;
+    height: 7vh;
+    border-radius: 50%;
+    background: #f9ca06;
+    text-align: center;
+    line-height: 7vh;
+    color: #0A1A27;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.add-item-button:hover {
+    transform: scale(1.2);
+}
 
+/*****css for header-carousel (fotd)******/
+.circle {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #dddddd;
+    border-radius: 50%;
+    margin: auto;
+}
+.carousel-indicators {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.carousel-indicators li {
+    list-style-type: none;
+    text-indent: -9999px;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dddddd;
+    margin-top: 2vh;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.carousel-indicators li:hover {
+    background: #dbb003;
+    transform: scale(1.2);
+}
+.carousel-indicators li.active {
+    border-radius: 0;
+    height: 70px;
+    width: 2px;
+}
+.carousel-indicators li.active:hover {
+    background: #dddddd;
+    transform: scale(1);
+}
+.carousel-indicators .fa-angle-down {
+    display: block;
+    margin-top: 2vh;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.4s;
+    color: #dddddd;
+}
+.carousel-indicators .fa-angle-down:hover {
+    color: #dbb003;
+    transform: scale(1.2);
+}
+.opacity-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 9, 9, 0.774);
+}
+.header-carousel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.carousel-slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.carousel-item, .carousel-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.carousel-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+}
+.carousel-item {
+    width: 90%;
+    height: 70%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.carousel-image.item-1 {
+    background: url('../images/Tonkatsu-Ramen-Tall2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.carousel-image.item-2 {
+    background: url('../images/Chicken-Tinga-Tacos-6.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.carousel-image.item-3 {
+    background: url('../images/IMG_0745-740x1110.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.carousel-content {
+    position: relative;
+}
+.carousel-content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+.carousel-title {
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #dddddd;
+}
+.carousel-subtitle {
+    font-size: 2rem;
+    font-style: italic;
+    margin-top: 1.5vh;
+    text-transform: capitalize;
+    color: #dbb003;
+}
+.carousel-button {
+    padding: 2vh 3vw;
+    background: #dbb003;
+    display: inline-block;
+    color: #0A1A27;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-top: 5vh;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: 900;
+}
+.carousel-button:hover {
+    background: #bb9600;
+}
+.social {
+    margin-top: 2.5vh;
+    font-size: 1.1rem;
+    color: #dddddd;
+}
+.social i:last-child {
+    margin-left: 20px;
+}
+.social span {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 10px;
+}
+.carousel-info {
+    margin-top: 4vh;
+    width: 80%;
+    line-height: 1.8;
+    color: #dddddd;
+}
+.fa-heart.carousel {
+    display: inline;
+}
+.carousel-item.active {
+    animation: blur .7s forwards;
+}
+.carousel-item.active .carousel-subtitle, 
+.carousel-item.active .carousel-title, .carousel-item.active .social {
+    animation: slide-right-1 1s forwards;
+}
+.carousel-item.active .carousel-button {
+    animation: slide-up-button 1s forwards;
+}
 
+/*****************CSS FOR CARD ITEM********************/
 
-
+section.list-items {
+    margin: 10vh 0;
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.5vw;
+}
+.card-item {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    cursor: pointer;
+}
+.card-image {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.card-gradient-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 47%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 47%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 47%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0) 47%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 47%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+}
+.card-title {
+    position: absolute;
+    bottom: 5%;
+    width: 55%;
+    display: block;
+    left: 5%;
+    z-index: 3;
+    color: #eeeeee;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+}
+.card-title:hover {
+    text-decoration: underline;
+}
+.card-author {
+    margin-top: -1vh;
+    font-weight: normal;
+    font-style: italic;
+}
+.card-social-icons {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 3;
+    color: #eeeeee;
+    font-size: 1rem;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+}
+.card-social-icons span {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 10px;
+}
+.card-social-icons i {
+    margin-left: 20px;
+}
+.card-item:hover .card-social-icons,
+.card-item:hover .card-title,
+.card-item:hover .card-gradient-bg {
+    opacity: 1;
+    visibility: visible;
+}
 
 /*****************CSS FOR ANIMATION********************/
+@keyframes menu-slide-down {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0%);
+    }
+}
 @keyframes slide-down {
     0% {
         opacity: 0;
@@ -395,7 +724,34 @@ body#main {
         visibility: visible;
     }
 }
-
+@keyframes slide-right-1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes slide-up-button {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes blur {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        filter: blur(25px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        filter: blur(0);
+    }
+}
 
 /********************CSS FOR RESPONSIVE********************/
 @media (min-width: 768px) and (max-width: 1024px) { /*for phablet, tablet devices*/
@@ -434,13 +790,6 @@ body#main {
 
 
 @media only screen and (min-width: 1025px) { /*for common laptops > 13" */
-    html, body {
-        background: url('../images/background.jpg');
-        background-position: center;
-        background-size: cover;
-        grid-template-columns: auto;
-        overflow: hidden;
-    }
     .logo {
         width: 18em;
     }
