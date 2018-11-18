@@ -6,6 +6,9 @@ const indicators = document.querySelectorAll('.carousel-indicators li');
 const carousel_slides = document.querySelectorAll('.carousel-item');
 const section_list_items = document.querySelector('.list-items');
 const menu_bar = document.querySelector('.menu-bar');
+const next_slide_button = document.querySelector('.next-slide');
+let cur_slide_index = 0;
+let cur_indicator_index = 0;
 
 let lastScrollTop = window.pageYOffset;
 window.addEventListener('scroll', function () {
@@ -75,5 +78,23 @@ for (let i = 0; i < indicators.length; i++) {
             carousel_slides[i].classList.remove('active');
             carousel_slides[cur_indicator].classList.add('active');
         }
-    })
+    });
 }
+next_slide_button.addEventListener('click', () => {
+    clearInterval(slide_interval);
+    let cur_slide = carousel_slides[cur_slide_index];
+    let cur_indicator = indicators[cur_indicator_index];
+    if(cur_slide_index < carousel_slides.length - 1) {
+        cur_slide_index++;
+        cur_indicator_index++;
+    } else {
+        cur_slide_index = 0;
+        cur_indicator_index = 0;
+    }
+    let next_slide = carousel_slides[cur_slide_index];
+    let next_indicator = indicators[cur_indicator_index];
+    cur_slide.classList.remove('active');
+    next_slide.classList.add('active');
+    cur_indicator.classList.remove('active');
+    next_indicator.classList.add('active');
+});

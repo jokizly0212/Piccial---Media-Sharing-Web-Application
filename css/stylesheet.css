@@ -191,7 +191,7 @@ section.menu-bar {
 }
 .search-box input {
     width: 100%;
-    height: 5vh;
+    height: 6vh;
     outline: none;
     border: 1.5px solid #f9ca06;
     position: absolute;
@@ -225,16 +225,16 @@ section.menu-bar {
     transform: translateY(-50%) scale(1.2);
 }
 .expand {
-    animation: expand 1s both;
+    animation: expand .5s both;
 }
 .shrink {
-    animation: shrink 1s forwards;
+    animation: shrink .5s forwards;
 }
 .magnify-animation {
-    animation: magnify-animation 1s forwards;
+    animation: magnify-animation .5s forwards;
 }
 .close-button-animation {
-    animation: close-button 1s forwards;
+    animation: close-button .5s forwards;
 }
 .menu-options {
     justify-self: center;
@@ -266,10 +266,10 @@ section.menu-bar {
 }
 .menu-bar.scroll .search-box input {
     background: none;
-    border: 1.3px solid #f9ca06;
+    border: 1.5px solid #f9ca06;
 }
 .menu-bar-animation {
-    animation: menu-slide-down .5s forwards;
+    animation: menu-slide-down .2s forwards;
 }
 /***************CSS FOR ADD ITEM BUTTON************/
 .add-item-button {
@@ -486,12 +486,13 @@ section.list-items {
     width: 100%;
     height: 40vh;
     cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
 }
 .card-image {
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 100%;
 }
 .card-gradient-bg {
     width: 100%;
