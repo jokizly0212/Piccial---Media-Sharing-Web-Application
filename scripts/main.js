@@ -7,6 +7,12 @@ const carousel_slides = document.querySelectorAll('.carousel-item');
 const section_list_items = document.querySelector('.list-items');
 const menu_bar = document.querySelector('.menu-bar');
 const next_slide_button = document.querySelector('.next-slide');
+const card_title = document.querySelectorAll('.card-title');
+const product = document.querySelector('section.product');
+const darkBg = document.querySelector('.dark-bg');
+const product_big_image = document.querySelector('.big-image');
+const product_small_images = document.querySelectorAll('.small-image-wrapper img');
+const product_close_button = document.querySelector('.product-close-button');
 let cur_slide_index = 0;
 let cur_indicator_index = 0;
 
@@ -98,3 +104,32 @@ next_slide_button.addEventListener('click', () => {
     cur_indicator.classList.remove('active');
     next_indicator.classList.add('active');
 });
+
+for (let i = 0; i < card_title.length; i++) {
+    const element = card_title[i];
+    element.addEventListener('click', () => {
+        product.classList.add('product-scale');
+        darkBg.setAttribute('style', 'opacity: 1; visibility: visible');
+        product_close_button.setAttribute('style', 'opacity: 1; visibility: visible');
+    });
+}
+
+const product_close = () => {
+    product.classList.remove('product-scale');
+    darkBg.setAttribute('style', 'opacity: 0; visibility: hidden');
+    product_close_button.setAttribute('style', 'opacity: 0; visibility: hidden');
+}
+darkBg.addEventListener('click', product_close);
+product_close_button.addEventListener('click', product_close);
+
+
+for (let i = 0; i < product_small_images.length; i++) {
+    const small_image = product_small_images[i];
+    small_image.addEventListener('click', (e) => {
+        e.preventDefault();
+        let small_image_src = small_image.getAttribute('src');
+        product_big_image.setAttribute('src', small_image_src);
+    })
+}
+
+
