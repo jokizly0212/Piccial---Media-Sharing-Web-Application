@@ -313,13 +313,13 @@
                         <div class="images-preview"></div>
                     </div>
                 </div>
-                <input multiple accept="image/*" type="file" name="images" class="choose-img" onchange="preview_images(this)">               
+                <input required multiple accept="image/*" type="file" name="images" class="choose-img" onchange="preview_images(this)">               
             </div>
             <div class="post-caption">
                 <div class="post-caption-container">
-                    <input class="p-food-name" type="text" placeholder="How do you call this?">
+                    <input required class="p-food-name" type="text" placeholder="How do you call this?">
                     <textarea class="p-food-caption" placeholder="Say something about it..." name="message" form="upload-post-form" rows="10" cols="30"></textarea>
-                    <div class="p-submit-button">post</div>
+                    <button type="submit" class="p-submit-button">post</button>
                 </div>
             </div>
         </form>

@@ -824,6 +824,9 @@ form.upload-post-form {
     position: relative;
     border-right: 1px solid rgb(207, 207, 207);
 }
+.choose-img {
+    outline: none;
+}
 .images-container {
     width: 90%;
     height: 80%;
@@ -904,8 +907,10 @@ form.upload-post-form {
     color: #0A1A27;
     text-transform: capitalize;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
     margin-top: 2vh;
+    border: none;
 }
 .scale-bottom-right {
     animation: scale-bottom-right .4s forwards;
