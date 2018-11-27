@@ -15,15 +15,26 @@ const product_small_images = document.querySelectorAll('.small-image-wrapper img
 const product_close_button = document.querySelector('.product-close-button');
 const add_item_button = document.querySelector('.add-item-button');
 const upload_post_section = document.querySelector('.upload-post');
+const choose_img = document.querySelector('.choose-img');
+const m_user_avatar = document.querySelector('.m-user-avatar');
+const options_wrapper = document.querySelector('.options-wrapper');
+const menu_options = document.querySelector('.menu-options');
+const search_box = document.querySelector('.search-box');
 let cur_slide_index = 0;
 let cur_indicator_index = 0;
+
+menu_options.addEventListener('click', () => {
+    options_wrapper.classList.toggle('visible');
+});
 
 let lastScrollTop = window.pageYOffset;
 window.addEventListener('scroll', function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     menu_bar.style.opacity = "0";
-    if(window.pageYOffset >= 100) {
+    if(window.pageYOffset >= 10) {
         menu_bar.classList.add('scroll');
+        search_box.style.height = '10vh';
+        m_user_avatar.style.marginTop = '1.5vh';
         if (scrollTop > lastScrollTop){
             menu_bar.classList.remove('menu-bar-animation');
         } else {
@@ -31,6 +42,8 @@ window.addEventListener('scroll', function () {
         }
     } else {
         menu_bar.classList.remove('scroll');
+        search_box.style.height = '15vh';
+        m_user_avatar.style.marginTop = '5vh';
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
  }, false);
@@ -143,7 +156,12 @@ for (let i = 0; i < product_small_images.length; i++) {
 function preview_images() {
     const images_preview = document.querySelector(".images-preview");
     if(this.files) {
-        [].forEach.call(this.files, readAndPreview);
+        if(this.files.length <= 4) {
+            [].forEach.call(this.files, readAndPreview);
+        } else {
+            choose_img.value = "";
+            alert('Limited to 4 images only');
+        }
     }
     readAndPreview = (file) => {
         let reader = new FileReader();
@@ -159,6 +177,6 @@ function preview_images() {
         reader.readAsDataURL(file);
     }
 }
-document.querySelector('.choose-img').addEventListener('change', preview_images, false);
+choose_img.addEventListener('change', preview_images, false);
 
 
