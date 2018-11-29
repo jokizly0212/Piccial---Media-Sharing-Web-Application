@@ -949,14 +949,47 @@ table{
     width: 100%;
     table-layout: fixed;
 }
+.top {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 30%;
+}
 .admin-page h1 {
     color: #f9ca06;
     text-transform: uppercase;
     display: block;
     width: 100%;
-    height: 30vh;
-    line-height: 30vh;
+    height: 20vh;
+    line-height: 20vh;
     text-align: center;
+}
+.admin-search-bar {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.admin-search-button {
+    color: #f9ca06;
+    margin-left: .6vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.admin-search-button:hover {
+    font-size: 1.2rem;
+}
+.admin-search-bar input {
+    background: none;
+    border: 1.3px solid #f9ca06;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+    padding-left: 1vw;
+    color: #dddddd;
+    outline: none;
 }
 .tbl-header{
     background-color: #f9ca06;
