@@ -940,6 +940,76 @@ form.upload-post-form {
     animation: scale-bottom-right .4s forwards;
 }
 
+/*****************CSS FOR ADMINISTRATOR PAGE***********/
+body.admin-page {
+    background: #242424;
+}
+
+table{
+    width: 100%;
+    table-layout: fixed;
+}
+.admin-page h1 {
+    color: #f9ca06;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    height: 30vh;
+    line-height: 30vh;
+    text-align: center;
+}
+.tbl-header{
+    background-color: #f9ca06;
+}
+.tbl-content{
+    height:auto;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid #f9ca06;
+}
+th{
+    padding: 2vh 1vw;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #0A1A27;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+td{
+    padding: 15px;
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    border-bottom: solid 1px #f9ca06;
+}
+.delete-badge  {
+    padding: 1vh 1vw;
+    background: none;
+    border: 2px solid rgb(226, 70, 70);
+    color: #dddddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+}
+.delete-badge:hover {
+    background: rgb(226, 70, 70);
+    color: #dddddd
+}
+select.permission {
+    background: none;
+    border: 1.5px solid #f9ca06;
+    outline: none;
+    width: 10vh;
+    height: 4vh;
+    font-size: .8rem;
+    color: #dddddd;
+}
+
+
 
 
 /*****************CSS FOR ANIMATION********************/
