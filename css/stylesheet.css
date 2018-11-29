@@ -715,7 +715,7 @@ img.big-image {
     transform: translateY(-50%);
     width: 50%;
 }
-.follow-button {
+.follow-button, .delete-post-button {
     padding: 0.8vh 1.5vw;
     position: absolute;
     top: 50%;
@@ -728,6 +728,13 @@ img.big-image {
     font-weight: bold;
     cursor: pointer;
     transition: 0.4s;
+}
+.delete-post-button {
+    background: rgb(211, 57, 57);
+    color: #dddddd;
+}
+.delete-post-button:hover {
+    background: rgb(173, 42, 42);
 }
 .follow-button:hover, .p-submit-button:hover {
     background: #dbb003;
@@ -827,6 +834,12 @@ img.user-comment-avatar {
     display: block;
     padding-left: 6vh;
     margin-top: -1vh;
+}
+.comment-delete-button {
+    color: rgb(173, 42, 42);
+    cursor: pointer;
+    float: right;
+    font-size: 1.2rem;
 }
 .product-scale {
     animation: product-scale .4s forwards;
