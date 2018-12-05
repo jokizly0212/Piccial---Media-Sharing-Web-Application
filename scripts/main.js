@@ -26,7 +26,6 @@ let cur_indicator_index = 0;
 menu_options.addEventListener('click', () => {
     options_wrapper.classList.toggle('visible');
 });
-
 let lastScrollTop = window.pageYOffset;
 window.addEventListener('scroll', function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -120,15 +119,6 @@ next_slide_button.addEventListener('click', () => {
     next_indicator.classList.add('active');
 });
 
-for (let i = 0; i < card_title.length; i++) {
-    const element = card_title[i];
-    element.addEventListener('click', () => {
-        product.classList.add('product-scale');
-        darkBg.setAttribute('style', 'opacity: 1; visibility: visible');
-        product_close_button.setAttribute('style', 'opacity: 1; visibility: visible');
-    });
-}
-
 const product_close = () => {
     product.classList.remove('product-scale');
     darkBg.setAttribute('style', 'opacity: 0; visibility: hidden');
@@ -178,5 +168,6 @@ function preview_images() {
     }
 }
 choose_img.addEventListener('change', preview_images, false);
+
 
 

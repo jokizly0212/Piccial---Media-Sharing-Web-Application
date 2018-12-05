@@ -8,14 +8,6 @@ buttonSubmit.addEventListener('click', (e) => {
     const username = document.querySelector('#username');
     const password = document.querySelector('#password');
     const email = document.querySelector('#email');
-    // let jsonObj = [];
-    // let obj = {
-    //     "username": username.value,
-    //     "password": password.value,
-    //     "email": email.value
-    // }
-    // jsonObj.push(obj);
-    // console.log(jsonObj)
     data.append('username', username.value);
     data.append('password', password.value);
     data.append('email', email.value);
