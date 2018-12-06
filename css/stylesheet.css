@@ -690,6 +690,12 @@ section.product {
     cursor: pointer;
     text-decoration: none;
 }
+.top .back-button {
+    color: #f9ca06;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
 .back-button:hover {
     color: #947600;
 }
