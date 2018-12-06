@@ -24,13 +24,16 @@ let cur_slide_index = 0;
 let cur_indicator_index = 0;
 
 menu_options.addEventListener('click', () => {
-    options_wrapper.classList.toggle('visible');
+    options_wrapper.classList.toggle('drop-down-menu-animation');
 });
+document.body.addEventListener('click', () => {
+    options_wrapper.classList.remove('drop-down-menu-animation');
+}, true);
 let lastScrollTop = window.pageYOffset;
 window.addEventListener('scroll', function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     menu_bar.style.opacity = "0";
-    if(window.pageYOffset >= 10) {
+    if(window.pageYOffset >= 1) {
         menu_bar.classList.add('scroll');
         search_box.style.height = '10vh';
         m_user_avatar.style.marginTop = '1.5vh';
@@ -124,6 +127,7 @@ const product_close = () => {
     darkBg.setAttribute('style', 'opacity: 0; visibility: hidden');
     product_close_button.setAttribute('style', 'opacity: 0; visibility: hidden');
     upload_post_section.classList.remove('scale-bottom-right');
+    add_item_button.setAttribute('style', 'opacity: 1; visibility: visible');
 }
 darkBg.addEventListener('click', product_close);
 product_close_button.addEventListener('click', product_close);
@@ -132,6 +136,7 @@ add_item_button.addEventListener('click', function () {
     darkBg.setAttribute('style', 'opacity: 1; visibility: visible');    
     product_close_button.setAttribute('style', 'opacity: 1; visibility: visible');
     upload_post_section.classList.add('scale-bottom-right');
+    add_item_button.setAttribute('style', 'opacity: 0; visibility: hidden');
 });
 
 
